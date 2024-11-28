@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compliment Generator</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+        h1 { color: #333; }
+        form { margin-bottom: 20px; }
+        input[type="text"] { padding: 10px; font-size: 16px; }
+        button { padding: 10px 20px; font-size: 16px; background: #007BFF; color: #fff; border: none; cursor: pointer; }
+        button:hover { background: #0056b3; }
+        .compliment { margin-top: 20px; font-size: 18px; color: #444; }
+    </style>
+</head>
+<body>
+    <h1>Compliment Generator 🌟</h1>
+    <form method="POST">
+        <input type="text" name="name" placeholder="Enter your name" required>
+        <button type="submit">Get Compliment</button>
+    </form>
+    {% if name and compliment %}
+        <div class="compliment">
+            <p><strong>{{ name }}</strong>, here's your compliment:</p>
+            <p>"{{ compliment }}"</p>
+        </div>
+    {% endif %}
+</body>
+</html>
