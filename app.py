@@ -13,7 +13,17 @@ compliments = [
     "You're smarter than you give yourself credit for! 🧠",
     "The way you handle challenges is truly admirable. 👏",
     "You are enough, just as you are. 💚",
-    "You have the power to achieve your dreams. Keep going! 🌟"
+    "You have the power to achieve your dreams. Keep going! 🌟",
+    "Your determination is incredible—keep reaching for the stars! 🌠",
+    "You make difficult things look easy. That’s a rare gift! ✨",
+    "Your positivity is contagious, and it brightens everyone's day! ☀️",
+    "The way you think about things is so insightful. You inspire others! 💡",
+    "You bring a special kind of energy to everything you do. Keep it up! ⚡️",
+    "You have a way of making people feel heard, and that’s amazing. 🫶",
+    "Your curiosity is one of your biggest strengths. Never stop exploring! 🔍",
+    "You have the courage to face any challenge. You’re truly unstoppable! 🛡️",
+    "The kindness you show to others makes the world a better place. 🌍💚",
+    "You’re the kind of person that turns dreams into reality. Keep believing! 🌈"
 ]
 
 @app.route("/", methods=["GET", "POST"])
