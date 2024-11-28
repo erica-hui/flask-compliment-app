@@ -1,8 +1,10 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for, session
 import os
 import random
 
 app = Flask(__name__)
+app.secret_key = 'your_secret_key_here'  # Replace with a secure key
+
 # List of compliments
 compliments = [
     "You're doing amazing, keep it up! 🌟",
@@ -29,11 +31,22 @@ compliments = [
 
 @app.route("/", methods=["GET", "POST"])
 def home():
+    name = session.get('name', None)
+    compliment = None
+
     if request.method == "POST":
         name = request.form.get("name")  # Get user input from the form
-        random_compliment = random.choice(compliments)
-        return render_template("index.html", name=name, compliment=random_compliment)
-    return render_template("index.html")
+        session['name'] = name  # Store name in session
+
+    if name:    
+        compliment = random.choice(compliments)
+    
+    return render_template("index.html", name=name, compliment=compliment)
+
+@app.route("/reset")
+def reset():
+    session.pop('name', None)  # Remove name from session
+    return redirect(url_for("home"))
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
